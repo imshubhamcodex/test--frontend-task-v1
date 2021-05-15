@@ -1,0 +1,79 @@
+<template>
+  <v-footer class="pr-7 pl-7 mt-7 pb-15" grey padless>
+    <v-card class="flex" flat tile style="background-color: transparent">
+      <v-card-title>
+        <strong class="subheading">Company Name and slogan</strong>
+
+        <v-spacer></v-spacer>
+
+        <div>
+          <h5 class="font-weight-bold black--text">Mobile app</h5>
+          <h6>Features</h6>
+          <h6 class="h6-mr">Live share</h6>
+          <h6 class="h6-mr">Video record</h6>
+        </div>
+        <v-spacer></v-spacer>
+        <div>
+          <h5 class="font-weight-bold black--text">Community</h5>
+          <h6>Featured artists</h6>
+          <h6 class="h6-mr">The Portal</h6>
+          <h6 class="h6-mr">Live events</h6>
+        </div>
+        <v-spacer></v-spacer>
+        <div>
+          <h5 class="font-weight-bold black--text">Company</h5>
+          <h6>About us</h6>
+          <h6 class="h6-mr">Contact us</h6>
+          <h6 class="h6-mr">History</h6>
+        </div>
+        <v-spacer></v-spacer>
+        <div>
+          <h5 class="font-weight-bold black--text">News</h5>
+          <h6>Latest</h6>
+          <h6 class="h6-mr">Trendings</h6>
+          <h6 class="h6-mr">Updates</h6>
+        </div>
+      </v-card-title>
+
+      <v-divider />
+      <br />
+
+      <div>
+        <span class="subheading"
+          >© Company name, Inc. {{ new Date().getFullYear() }}. We love our
+          users!</span
+        >
+        <div style="float: right">
+          <span class="mr-5">Follow us:</span>
+          <v-btn v-for="icon in icons" :key="icon" class="mx-2" icon>
+            <v-icon size="24px">
+              {{ icon }}
+            </v-icon>
+          </v-btn>
+        </div>
+      </div>
+    </v-card>
+  </v-footer>
+</template>
+<script>
+export default {
+  data: () => ({
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+  }),
+};
+</script>
+<style scoped>
+.h6-mr {
+  margin-top: -10px;
+}
+h6 {
+  cursor: pointer;
+  font-weight: 300;
+  color: black;
+  transition: all ease 0.2s;
+}
+h6:hover {
+  color: grey;
+  transform: scale(1.05);
+}
+</style>

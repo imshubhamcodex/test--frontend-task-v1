@@ -1,14 +1,26 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import homepage from "../components/homepage";
+import home from "../components/home";
+import main from "../components/main";
+import test from "../components/hzAddServiceBox";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    name: "Home",
+    name: "home",
     path: "/",
-    component: homepage,
+    component: home,
+  },
+  {
+    name: "main",
+    path: "/process",
+    component: main,
+  },
+  {
+    name: "test",
+    path: "/test",
+    component: test,
   },
 ];
 
