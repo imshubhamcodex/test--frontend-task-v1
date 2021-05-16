@@ -1,7 +1,7 @@
 <template>
   <v-form>
     <v-row>
-      <v-col cols="12" sm="3" class="ml-8 mt-8">
+      <v-col cols="12" sm="3">
         <span class="black--text">Provider Name</span>
         <v-text-field
           label="First Name"
@@ -15,7 +15,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col cols="12" sm="3" style="margin-top: 56px">
+      <v-col cols="12" sm="3" id="last-name-input" style="margin-top: 24px">
         <v-text-field
           label="Last Name"
           outlined
@@ -28,8 +28,8 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12" sm="6" class="ml-8">
+    <v-row class="mt-n5">
+      <v-col cols="12" sm="6">
         <span class="black--text">Provider's Email</span>
         <v-text-field
           label="Email Address"
@@ -43,8 +43,8 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12" sm="6" class="ml-8">
+    <v-row class="mt-n5">
+      <v-col cols="12" sm="6">
         <span class="black--text">Provider's Mobile Number</span>
         <v-text-field
           label="Mobile Number"
@@ -58,8 +58,8 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12" sm="6" class="ml-8">
+    <v-row class="mt-n5">
+      <v-col cols="12" sm="6">
         <span class="black--text">Provider's Location</span>
         <v-text-field
           label="Location"
@@ -73,8 +73,8 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12" sm="6" class="ml-8">
+    <v-row class="mt-n5">
+      <v-col cols="12" sm="6">
         <span class="black--text">Organization's Name</span>
         <v-text-field
           label="Hospital/clinic Name"
@@ -98,5 +98,10 @@ export default {};
 .theme--light.v-messages {
   color: red;
   margin-left: -10px;
+}
+@media only screen and (max-width: 420px) {
+  #last-name-input {
+    margin-top: -5px !important;
+  }
 }
 </style>

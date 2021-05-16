@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import home from "../components/home";
 import main from "../components/main";
-import test from "../components/hzAddServiceBox";
+import test from "../components/done";
 
 Vue.use(VueRouter);
 

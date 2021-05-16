@@ -1,6 +1,6 @@
 <template>
   <div class="text-center list-box">
-    <p style="margin-top: 50%">No Provider added yet!</p>
+    <p class="para-void">N/A</p>
   </div>
 </template>
 
@@ -11,7 +11,14 @@ export default {};
 .list-box {
   min-height: 400px;
   background-color: lightgrey;
-  max-width: 300px;
+  min-width: 300px;
   border-radius: 5px;
+  position: relative;
+}
+.para-void {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
