@@ -1,10 +1,10 @@
 <template>
   <div class="mb-16">
-    <h2 class="text-center mt-4 mb-16">Join us as a Service Provider</h2>
+    <h2 id="heading" class="text-center mt-4 mb-16">Join us as a Service Provider</h2>
     <br />
     <br />
     <template>
-      <v-banner class="ml-15 mr-16" two-line>
+      <v-banner class="ml-15 mr-16 banner-box" two-line>
         <v-avatar slot="icon" color="deep-purple accent-4" size="40">
           <v-icon icon="mdi-lock" color="white"> mdi-account-group </v-icon>
         </v-avatar>
@@ -28,7 +28,7 @@
     <h2 class="text-center mt-16 mb-16">OR</h2>
 
     <template>
-      <v-banner class="ml-15 mr-16" two-line>
+      <v-banner class="ml-15 mr-16 banner-box" two-line>
         <v-avatar slot="icon" color="deep-purple accent-4" size="40">
           <v-icon icon="mdi-lock" color="white"> mdi-account </v-icon>
         </v-avatar>
@@ -81,4 +81,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 420px) {
+	.banner-box{
+    margin-left:10px !important;
+    margin-right:10px !important;
+  }
+  #heading{
+    margin-top:30px !important;
+    margin-bottom:0px !important;
+  }
+}
+
+</style>

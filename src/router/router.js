@@ -5,7 +5,7 @@ import main from "../components/main";
 import done from "../components/done";
 import allrecords from "../components/allRecords";
 
-import test from "../components/allRecords";
+import test from "../components/editRecord";
 
 Vue.use(VueRouter);
 
