@@ -13,6 +13,7 @@
             counter
             maxlength="25"
             class="mt-2"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
 
@@ -26,6 +27,7 @@
             counter
             maxlength="20"
             class="mt-8"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -41,6 +43,7 @@
             counter
             maxlength="50"
             class="mt-2"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -56,6 +59,7 @@
             counter
             maxlength="10"
             class="mt-2"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -73,6 +77,7 @@
             counter
             maxlength="60"
             class="mt-2"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -94,6 +99,7 @@
             counter
             maxlength="30"
             class="mt-2"
+            :disabled="viewRecord"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -102,7 +108,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["viewRecord"],
+};
 </script>
 <style scoped>
 @media only screen and (max-width: 420px) {

@@ -11,13 +11,14 @@
       <v-avatar left>
         <v-icon>mdi-doctor</v-icon>
       </v-avatar>
-      Mike
+      {{ providerInfo.name }}
     </v-chip>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["providerInfo"],
   data() {
     return {
       chip1: true,

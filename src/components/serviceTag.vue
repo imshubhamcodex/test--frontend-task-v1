@@ -11,13 +11,14 @@
       <v-avatar left>
         <v-icon>mdi-bullseye-arrow</v-icon>
       </v-avatar>
-      X-Ray
+      {{ serviceInfo.name }}
     </v-chip>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["serviceInfo"],
   data() {
     return {
       chip1: true,

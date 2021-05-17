@@ -1,15 +1,16 @@
 <template>
-  <v-card v-if="disp" class="mx-auto mt-5" max-width="344">
+  <v-card class="mx-auto mt-5" max-width="344">
     <v-icon
-      @click="disp = false"
+      @click="close()"
       color="red"
       class="mt-1 mr-1"
       style="float: right; cursor: pointer"
+      v-if="disp"
       >mdi-close-box</v-icon
     >
     <v-card-text>
       <div>Set price and discounts</div>
-      <p class="display-1 text--primary">Service name</p>
+      <p class="display-1 text--primary">Service name{{ elementId }}</p>
       <table>
         <tr>
           <td class="pb-3">
@@ -17,7 +18,12 @@
           </td>
           <td>
             <v-col>
-              <v-text-field label="Actual amt." outlined dense></v-text-field>
+              <v-text-field
+                :disabled="isDisable()"
+                label="Actual amt."
+                outlined
+                dense
+              ></v-text-field>
             </v-col>
           </td>
         </tr>
@@ -28,6 +34,7 @@
           <td>
             <v-col>
               <v-text-field
+                :disabled="isDisable()"
                 label="Discounted amt."
                 outlined
                 dense
@@ -69,11 +76,26 @@
 
 <script>
 export default {
+  props: ["elementId"],
   data() {
     return {
       reveal: false,
       disp: true,
     };
+  },
+  methods: {
+    close() {
+      this.$emit("remove-service", this.elementId);
+    },
+    isDisable() {
+      if (this.elementId < 0) {
+        return true;
+      }
+      return false;
+    },
+  },
+  mounted() {
+    this.disp = !this.isDisable();
   },
 };
 </script>

@@ -2,7 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import home from "../components/home";
 import main from "../components/main";
-import test from "../components/done";
+import done from "../components/done";
+import allrecords from "../components/allRecords";
+
+import test from "../components/allRecords";
 
 Vue.use(VueRouter);
 
@@ -16,6 +19,16 @@ const routes = [
     name: "main",
     path: "/process",
     component: main,
+  },
+  {
+    name: "done",
+    path: "/done",
+    component: done,
+  },
+  {
+    name: "allrecords",
+    path: "/allrecords",
+    component: allrecords,
   },
   {
     name: "test",
