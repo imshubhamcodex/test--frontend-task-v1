@@ -1,6 +1,8 @@
 <template>
   <div class="mb-16">
-    <h2 id="heading" class="text-center mt-4 mb-16">Join us as a Service Provider</h2>
+    <h2 id="heading" class="text-center mt-4 mb-16">
+      Join us as a Service Provider
+    </h2>
     <br />
     <br />
     <template>
@@ -83,14 +85,13 @@ export default {
 
 <style scoped>
 @media only screen and (max-width: 420px) {
-	.banner-box{
-    margin-left:10px !important;
-    margin-right:10px !important;
+  .banner-box {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
   }
-  #heading{
-    margin-top:30px !important;
-    margin-bottom:0px !important;
+  #heading {
+    margin-top: 30px !important;
+    margin-bottom: 0px !important;
   }
 }
-
 </style>

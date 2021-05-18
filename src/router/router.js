@@ -4,6 +4,7 @@ import home from "../components/home";
 import main from "../components/main";
 import done from "../components/done";
 import allrecords from "../components/allRecords";
+import error from "../components/error";
 
 import test from "../components/editRecord";
 
@@ -34,6 +35,11 @@ const routes = [
     name: "test",
     path: "/test",
     component: test,
+  },
+  {
+    name: "error",
+    path: "*",
+    component: error,
   },
 ];
 
