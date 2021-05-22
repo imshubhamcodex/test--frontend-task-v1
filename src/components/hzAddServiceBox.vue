@@ -217,4 +217,10 @@ export default {
     margin-left: 0px !important;
   }
 }
+
+@media only screen and (max-width: 370px) {
+  #card {
+    margin-left: -20px !important;
+  }
+}
 </style>

@@ -2,7 +2,8 @@
   <v-footer class="pr-7 pl-7 mt-7 pb-15" grey padless>
     <v-card class="flex" flat tile style="background-color: transparent">
       <v-card-title>
-        <strong class="subheading">Company Name and slogan</strong>
+        <p><strong class="subheading">Company Name</strong></p>
+        <div style="width: 20px"></div>
 
         <v-spacer></v-spacer>
 
@@ -27,7 +28,7 @@
           <h6 class="h6-mr">History</h6>
         </div>
         <v-spacer></v-spacer>
-        <div>
+        <div id="news">
           <h5 class="font-weight-bold black--text">News</h5>
           <h6>Latest</h6>
           <h6 class="h6-mr">Trendings</h6>
@@ -58,7 +59,7 @@
 <script>
 export default {
   data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-instagram"],
   }),
 };
 </script>
@@ -75,5 +76,10 @@ h6 {
 h6:hover {
   color: grey;
   transform: scale(1.05);
+}
+@media only screen and (max-width: 370px) {
+  #news {
+    padding-right: 70px !important;
+  }
 }
 </style>

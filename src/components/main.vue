@@ -29,7 +29,11 @@
             <span class="black--text text-h5"
               >Get started with your <strong>name and location</strong></span
             >
-            <div style="margin-left: 20%; margin-right: 20%" class="mt-15">
+            <div
+              id="step1-box"
+              style="margin-left: 20%; margin-right: 20%"
+              class="mt-15"
+            >
               <v-row class="mt-n5">
                 <v-col cols="12" sm="12">
                   <span class="black--text">Organization/Provider Name</span>
@@ -145,6 +149,7 @@
         <v-btn
           @click="goToEle4()"
           class="mx-2 fr mt-11"
+          id="next-service-btn"
           fab
           dark
           small
@@ -179,6 +184,7 @@
         <span class="mt-12 ml-2 mr-2 fl">Back</span>
 
         <v-btn
+          id="btn-submit"
           @click="submit()"
           class="mx-2 fr mt-9"
           fab
@@ -188,7 +194,7 @@
         >
           <v-icon dark> mdi-arrow-right </v-icon>
         </v-btn>
-        <span class="mt-12 mr-2 fr">Submit</span>
+        <span id="label-submit" class="mt-12 mr-2 fr">Submit</span>
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -305,6 +311,25 @@ export default {
     grid-template-columns: repeat(1, 1fr) !important;
   }
   #div-step4 {
+    margin-top: 50px !important;
+  }
+  #step1-box {
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  #btn-next-service {
+    margin-top: 48px !important;
+  }
+  #next-service-btn {
+    margin-top: 38px !important;
+  }
+  #btn-submit {
+    margin-top: 40px !important;
+  }
+  #label-submit {
     margin-top: 50px !important;
   }
 }
