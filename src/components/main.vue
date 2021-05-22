@@ -2,24 +2,24 @@
   <v-stepper v-model="e1" class="mb-n10 pb-16">
     <v-stepper-header>
       <v-stepper-step color="green" :complete="e1 > 1" step="1">
-        Add Provider
+        Get Started
       </v-stepper-step>
 
       <v-divider></v-divider>
 
       <v-stepper-step color="green" :complete="e1 > 2" step="2">
-        Add Services
+        Add Providers
       </v-stepper-step>
 
       <v-divider></v-divider>
 
       <v-stepper-step color="green" :complete="e1 > 3" step="3">
-        Confirmation
+        Add Services
       </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step color="green" step="4"> Are you sure </v-stepper-step>
+      <v-stepper-step color="green" step="4"> Confirmation </v-stepper-step>
     </v-stepper-header>
 
     <v-stepper-items>
@@ -27,21 +27,74 @@
         <v-card elevation="0">
           <v-container>
             <span class="black--text text-h5"
+              >Get started with your <strong>name and location</strong></span
+            >
+            <div style="margin-left: 20%; margin-right: 20%" class="mt-15">
+              <v-row class="mt-n5">
+                <v-col cols="12" sm="12">
+                  <span class="black--text">Organization/Provider Name</span>
+                  <v-text-field
+                    label="Org. Name"
+                    outlined
+                    clearable
+                    color="purple darken-2"
+                    hint="This field is required!"
+                    counter
+                    maxlength="30"
+                    class="mt-2"
+                    v-model="org_name"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row class="mt-n5">
+                <v-col cols="12" sm="12">
+                  <span class="black--text"
+                    >Organization/Provider Location</span
+                  >
+                  <v-text-field
+                    label="Org. Location"
+                    outlined
+                    clearable
+                    color="purple darken-2"
+                    hint="This field is required!"
+                    counter
+                    maxlength="50"
+                    class="mt-2"
+                    v-model="org_loc"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </div>
+            <v-btn
+              @click="goToEle2(true)"
+              class="mx-2 mt-3 fr"
+              fab
+              dark
+              small
+              color="indigo"
+            >
+              <v-icon dark> mdi-arrow-right </v-icon>
+            </v-btn>
+            <span class="mt-5 mr-2 fr">Next</span>
+          </v-container>
+        </v-card>
+      </v-stepper-content>
+
+      <v-stepper-content step="2">
+        <v-card elevation="0">
+          <v-container>
+            <span class="black--text text-h5"
               >Register your <strong>service provider</strong> here</span
             >
-
-            <DetailsForm class="mt-5" />
-
-            <div class="div-list-box">
-              <strong>Added providers</strong>
-              <ListBox :providers="persons" style="min-width: 400px" />
-            </div>
+            <HzDetailsBox v-if="!mobileView" class="pt-5" />
+            <DetailsForm v-else class="pt-5" />
+            <TableProviders class="mt-15" />
           </v-container>
         </v-card>
 
         <v-btn
-          @click="goToEle2()"
-          class="mx-2 mt-3 fr"
+          @click="goToEle3()"
+          class="mx-2 mt-10 fr"
           fab
           dark
           small
@@ -49,24 +102,7 @@
         >
           <v-icon dark> mdi-arrow-right </v-icon>
         </v-btn>
-        <span class="mt-5 mr-2 fr">Add services</span>
-      </v-stepper-content>
-
-      <v-stepper-content step="2">
-        <v-card elevation="0">
-          <v-container>
-            <span class="black--text text-h5"
-              >Select services offered by <strong>Provider’s Name</strong></span
-            >
-
-            <ServiceBox class="mt-5" />
-
-            <div class="div-list-box">
-              <strong>Added Services</strong>
-              <ListBox :services="services" style="min-width: 400px" />
-            </div>
-          </v-container>
-        </v-card>
+        <span class="mt-12 mr-2 fr">Add services</span>
 
         <v-btn
           class="mx-2 fl mt-10"
@@ -79,53 +115,24 @@
           <v-icon dark> mdi-arrow-left </v-icon>
         </v-btn>
         <span class="mt-12 ml-2 mr-2 fl">Back</span>
-
-        <v-btn
-          @click="goToEle3()"
-          class="mx-2 fr mt-11"
-          fab
-          dark
-          small
-          color="indigo"
-        >
-          <v-icon dark> mdi-arrow-right </v-icon>
-        </v-btn>
-        <span id="btn-next-service" class="mt-13 mr-2 fr"
-          >Add price and discounts</span
-        >
       </v-stepper-content>
 
       <v-stepper-content step="3">
         <v-card elevation="0">
           <v-container>
             <span class="black--text text-h5"
-              >Review <strong>Details</strong></span
+              >Select services offered by <strong>Provider’s Name</strong></span
             >
-            <HzDetailsBox :viewRecord="false" class="mt-5" />
-            <ul
-              id="ul-box"
-              style="
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                padding: 0;
-                margin: 0;
-              "
-            >
-              <li
-                style="display: inline"
-                class="mt-5"
-                v-for="num in number"
-                :key="num"
-              >
-                <ServiceRate :elementId="num" @remove-service="updateService" />
-              </li>
-            </ul>
+
+            <HzServiceBox class="mt-5" />
+
+            <TableServices class="mt-15" />
           </v-container>
         </v-card>
 
         <v-btn
           class="mx-2 fl mt-10"
-          @click="goToEle1()"
+          @click="goToEle2(false)"
           fab
           dark
           small
@@ -145,87 +152,68 @@
         >
           <v-icon dark> mdi-arrow-right </v-icon>
         </v-btn>
-        <span class="mt-13 mr-2 fr">Go ahead</span>
+        <span id="btn-next-service" class="mt-13 mr-2 fr">Add price</span>
       </v-stepper-content>
 
       <v-stepper-content step="4">
         <v-card elevation="0">
           <v-container>
             <span class="black--text text-h5"
-              >Are you <strong>sure ?</strong></span
+              >Review <strong>Details</strong></span
             >
-            <div
-              id="div-step4"
-              class="mt-5"
-              style="
-                max-width: 400px;
-                text-align: center;
-                margin: auto auto;
-                display: block;
-              "
-            >
-              <v-btn
-                @click="addNewProv()"
-                class="mx-2 mt-0"
-                fab
-                dark
-                color="cyan"
-              >
-                <v-icon dark> mdi-plus </v-icon>
-              </v-btn>
-              <span class="black--text text-h5"
-                >Add <strong> another </strong>provider</span
-              >
-              <br />
-              <br />
-              <br />
-              <br />
-              <p>OR</p>
-              <br />
-              <br />
-              <span class="black--text text-h5"
-                >Go ahead and <strong> submit </strong></span
-              >
-              <v-btn @click="submit()" class="mx-2" fab dark color="green">
-                <v-icon dark> mdi-chevron-right </v-icon>
-              </v-btn>
-            </div>
-            <div id="all-providers-div">
-              <strong>All providers</strong>
-              <ListBox />
-            </div>
+            <TableProviders class="mt-15" />
+            <TableServices class="mt-16" />
           </v-container>
         </v-card>
+
+        <v-btn
+          class="mx-2 fl mt-10"
+          @click="goToEle3()"
+          fab
+          dark
+          small
+          color="indigo"
+        >
+          <v-icon dark> mdi-arrow-left </v-icon>
+        </v-btn>
+        <span class="mt-12 ml-2 mr-2 fl">Back</span>
+
+        <v-btn
+          @click="submit()"
+          class="mx-2 fr mt-9"
+          fab
+          dark
+          small
+          color="green"
+        >
+          <v-icon dark> mdi-arrow-right </v-icon>
+        </v-btn>
+        <span class="mt-12 mr-2 fr">Submit</span>
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
 <script>
 import DetailsForm from "./detailsForm";
-import ServiceBox from "./addServiceBox";
-import ListBox from "./listBox";
+import HzServiceBox from "./hzAddServiceBox";
 import HzDetailsBox from "./hzDetailsBox";
-import ServiceRate from "./serviceRate";
+import TableProviders from "./tableProviders";
+import TableServices from "./tableServices";
 export default {
   components: {
-    DetailsForm,
-    ListBox,
-    ServiceBox,
+    HzServiceBox,
     HzDetailsBox,
-    ServiceRate,
+    DetailsForm,
+    TableProviders,
+    TableServices,
   },
   data() {
     return {
       e1: 1,
       number: [1, 2, 3, 4, 5, 6],
-      persons: [
-        { id: 1, name: "Boss" },
-        { id: 2, name: "Mike" },
-      ],
-      services: [
-        { id: 1, name: "service1" },
-        { id: 2, name: "service2" },
-      ],
+      mobileView: false,
+      org_name: null,
+      org_loc: null,
     };
   },
   metaInfo() {
@@ -244,7 +232,15 @@ export default {
       this.e1 = 1;
       this.scrollTop();
     },
-    goToEle2() {
+    goToEle2(save) {
+      if (save) {
+        let obj = {
+          organization_name: this.org_name,
+          organization_location: this.org_loc,
+        };
+        this.$store.commit("updateOrganization", obj);
+      }
+
       this.e1 = 2;
       this.scrollTop();
     },
@@ -271,6 +267,12 @@ export default {
       this.number.splice(index, 1);
       console.log(this.number);
     },
+  },
+  mounted() {
+    if (window.innerWidth <= 420) {
+      this.mobileView = true;
+    }
+    console.log(this.$store.state.userType);
   },
 };
 </script>

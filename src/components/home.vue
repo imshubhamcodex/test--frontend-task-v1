@@ -69,9 +69,14 @@ export default {
   },
   methods: {
     setProviderType(type) {
-      this.provider_type = type;
-      console.log(this.provider_type);
+      this.$store.commit("setUserType", type);
       this.$router.push("/process");
+    },
+    scrollTop() {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
     },
   },
   mounted() {
@@ -79,6 +84,8 @@ export default {
     // .then(res=>{
     //   console.log(res.data);
     // })
+
+    this.scrollTop();
   },
 };
 </script>

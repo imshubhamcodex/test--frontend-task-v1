@@ -40,8 +40,8 @@
 
       <div>
         <span class="subheading"
-          >© Company name, Inc. {{ new Date().getFullYear() }}. We love our
-          users!</span
+          >© Company name, Inc. {{ new Date().getFullYear() }}. We love
+          you!</span
         >
         <div style="float: right">
           <span class="mr-5">Follow us:</span>
