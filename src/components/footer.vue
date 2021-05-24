@@ -8,29 +8,29 @@
         <v-spacer></v-spacer>
 
         <div>
-          <h5 class="font-weight-bold black--text">Mobile app</h5>
-          <h6>Features</h6>
+          <h5 class="font-weight-bold ">Mobile app</h5>
+          <h6 class="h6-mr">Features</h6>
           <h6 class="h6-mr">Live share</h6>
           <h6 class="h6-mr">Video record</h6>
         </div>
         <v-spacer></v-spacer>
         <div>
-          <h5 class="font-weight-bold black--text">Community</h5>
-          <h6>Featured artists</h6>
+          <h5 class="font-weight-bold">Community</h5>
+          <h6 class="h6-mr">Featured artists</h6>
           <h6 class="h6-mr">The Portal</h6>
           <h6 class="h6-mr">Live events</h6>
         </div>
         <v-spacer></v-spacer>
         <div>
-          <h5 class="font-weight-bold black--text">Company</h5>
-          <h6>About us</h6>
+          <h5 class="font-weight-bold ">Company</h5>
+          <h6 class="h6-mr">About us</h6>
           <h6 class="h6-mr">Contact us</h6>
           <h6 class="h6-mr">History</h6>
         </div>
         <v-spacer></v-spacer>
         <div id="news">
-          <h5 class="font-weight-bold black--text">News</h5>
-          <h6>Latest</h6>
+          <h5 class="font-weight-bold ">News</h5>
+          <h6 class="h6-mr">Latest</h6>
           <h6 class="h6-mr">Trendings</h6>
           <h6 class="h6-mr">Updates</h6>
         </div>
@@ -61,6 +61,14 @@ export default {
   data: () => ({
     icons: ["mdi-facebook", "mdi-twitter", "mdi-instagram"],
   }),
+  mounted(){
+    if(this.$vuetify.theme.dark){
+       console.log("hi")
+       document.getElementsByClassName("h6-mr").forEach(element => {
+         element.style.color="white";
+       });
+    }
+  }
 };
 </script>
 <style scoped>

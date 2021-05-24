@@ -1,7 +1,7 @@
 <template>
   <v-row class="mb-15">
     <v-col cols="12" sm="4">
-      <span class="black--text">Select a Service</span>
+      <span class="black--text dark-v">Select a Service</span>
       <v-select
         class="mt-2"
         clearable
@@ -106,6 +106,17 @@
         </v-card>
       </template>
     </v-col>
+    <template>
+			<div class="text-center ma-2">
+				<v-snackbar v-model="snackbar">
+					Added!
+
+					<template v-slot:action="{ attrs }">
+						<v-btn color="pink" text v-bind="attrs" @click="snackbar = false"> Close </v-btn>
+					</template>
+				</v-snackbar>
+			</div>
+		</template>
   </v-row>
 </template>
 
@@ -120,6 +131,7 @@ export default {
     discount_price: null,
     data: [],
     selectedService: null,
+    snackbar:false
   }),
   methods: {
     addService() {
@@ -146,6 +158,7 @@ export default {
       this.regular_price = null;
       this.discount_price = null;
       this.selectedService = null;
+      this.snackbar = true;
     },
     isdisable() {
       if (this.loading) {
@@ -168,6 +181,10 @@ export default {
     for (let i = 0; i < this.data.length; i++) {
       this.items.push(this.data[i].name);
     }
+
+    if (this.$vuetify.theme.dark) {
+			document.getElementsByClassName('dark-v')[0].classList = '';
+		}
   },
   watch: {
     loader() {
